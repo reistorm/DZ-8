@@ -39,15 +39,17 @@ void PrintArray(int[,] array)
 
 void FindMinSumElements(int[,] array)
 {
-    int sum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(0); j++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            sum = sum + array[i, j];
-            Console.WriteLine(sum);
-        }
+    int sum = 0;
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        sum = sum + array[j, i];
+
     }
+    Console.WriteLine($"Сумма {j+1} строки = " + sum);
+    }
+    
     return;
 }
 int[,] array = GetArray(rows, cols);
