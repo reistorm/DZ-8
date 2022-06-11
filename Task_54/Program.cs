@@ -38,53 +38,27 @@ void PrintArray(int[,] array)
     }
 }
 
-// int[,] SortSeal(int[,] array)
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         Array.Sort(array[i, j]);
-//     }
-// }
+
 
 int[,] SelectionSort(int[,] array)
 {
-    int temp = 0;
-
-    for (int i = 0; i < array.GetLength(1); i++)
+    for (int j = 0; j < array.GetLength(0); j++)
     {
-        for (int j = 0; j < array.GetLength(0) - 1; j++)
+        for (int i = 0; i < array.GetLength(1); i++)
         {
-            if (array[i, j] < array[i, j + 1])
+            int maxPozition = array[j, i];
+            int temp = 0;
+            if (array[j + 1, i] > maxPozition)
             {
-                temp = array[i, j];
-                array[i, j] = array[i, j + 1];
-                array[i, j + 1] = temp;
+                maxPozition = array[j + 1, i];
             }
-            else
-            {
-                array[i, j] = array[i, j + 1];
-            }
+            temp = array[j, i];
+            array[j, i] = array[j + 1, i];
+            array[j + 1, i] = temp;
         }
     }
     return array;
 }
-// for (int i = 0; i < array.GetLength(0); i++)
-// {
-//     for (int j = 0; j < array.GetLength(1); j++)
-//     {
-//         int maxPozition = array[0, 0];
-//         int temp = 0;
-//         if (array[i + 1, j] > maxPozition)
-//         {
-//             maxPozition = array[i + 1, j];
-//         }
-//         temp = array[i + 1, j];
-//         array[i + 1, j] = array[i, j];
-//         array[i, j] = temp;
-//     }
-// }
-// return array;
-
 
 int[,] array = GetArray(rows, cols);
 Console.WriteLine("Массив: ");
